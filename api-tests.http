@@ -1,0 +1,49 @@
+### Variables
+@baseUrl = http://localhost:3000/api/users
+@contentType = application/json
+
+### Register a new user
+POST {{baseUrl}}/register HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Login user
+POST {{baseUrl}}/login HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Login with wrong password (should fail)
+POST {{baseUrl}}/login HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "email": "test@example.com",
+  "password": "wrongpassword"
+}
+
+### Get all users
+GET {{baseUrl}} HTTP/1.1
+
+### Get user by ID (replace with actual ID from register/login response)
+GET {{baseUrl}}/65f1234567890abcdef12345 HTTP/1.1
+
+### Update user (replace with actual ID)
+PUT {{baseUrl}}/65f1234567890abcdef12345 HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "username": "updateduser",
+  "email": "updated@example.com"
+}
+
+### Delete user (replace with actual ID)
+DELETE {{baseUrl}}/65f1234567890abcdef12345 HTTP/1.1
